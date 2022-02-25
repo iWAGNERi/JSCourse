@@ -428,7 +428,7 @@ const newArr = [
 ];
 
 console.log(newArr.find((elem) => elem.price < 300));
-// ищит Элемент
+// ищит Элемент Вернет то что соответсвует условию — новый массив
 console.log(newArr.filter((elem) => elem.price < 500));
 
 // сортировка
@@ -440,7 +440,7 @@ console.log(
   })
 );
 
-// сортировкапо фамилии
+// сортировкапо фамилии, сепаратор задаем. разделит строку в массив
 const arr = array.map((elem) => elem.split(" "));
 
 console.log(
@@ -484,7 +484,7 @@ function maxNumberOfArray(array) {
   return Math.max(...array);
 }
 
-// Объекты — ключи строковые
+// Объекты — ключи строковые. Тип данных и структура данных
 // Массив — индексы ключи
 const car = {
   moldelCar: "Rerrari",
@@ -648,6 +648,13 @@ for(let key in autoSalon) {
 }
 
 
+let data = null
+
+fetch ('') 
+  .then((res) => res.json ())
+  .then((res)=> data = res)
+  .then(()=>console.log(data.name))
+
 
 let requestedURL = "https://pokeapi.co/api/v2/berry/1";
 
@@ -655,3 +662,199 @@ fetch(requestedURL)
   .then((data) => data.json())
   .then((data) => console.log(data))
   .catch((err) => console.log(`Ошибка в запросе ${err}`))
+
+
+  let requestedURL = "https://constructor.kenguru.pro/api/equipment-items/";
+
+
+// let username = 'user';
+// let password = 'passwd';
+
+// let headers = new Headers();
+
+// //headers.append('Content-Type', 'text/json');
+// headers.append('Authorization', 'Basic' + base64.encode(username + ":" + password));  
+
+fetch(requestedURL)
+  .then((data) => data.json())
+  .then((data) => console.log(data))
+  .catch((err) => console.log(`Ошибка в запросе ${err}`))
+
+// выбор свойства внутри массива
+
+const pokeName = prompt()
+
+let requestedURL = `https://pokeapi.co/api/v2/pokemon/${pokeName}`
+
+console.log(requestedURL)
+
+fetch(requestedURL)
+  .then((data) => data.json())
+  .then((data) => alert(data.abilities[0].ability.name))
+  .catch((err) => console.log(`Ошибка в запросе ${err}`))
+
+// асинхронность async await/ await — что нужно ждать
+
+
+const getReq = async () => {
+  let data = await fetch("https://pokeapi.co/api/v2/pokemon/ditto");
+  data = data.json();
+  return data;
+};
+
+// обработка запроса
+
+getReq()
+  .then((dta) => console.log(data))
+
+// забираем свойство абилити 
+
+const getReq = async () => {
+  let data = await fetch("https://pokeapi.co/api/v2/pokemon/132");
+  data = data.json();
+  console.log(data)
+  return data;
+};
+
+getReq()
+  .then((data) => console.log(data.abilities[0].ability.name))
+
+// фнукция вызывает функцию
+
+
+let mainData = null
+
+
+const getReq = async () => {
+  const data = await fetch("https://pokeapi.co/api/v2/pokemon/132");
+  mainData = await data.json()
+};
+
+
+const goData = async () => {
+  await getReq()
+  console.log(mainData)
+}
+
+goData()
+
+//DOM
+
+
+// Вернет только первое совпадение
+console.log(document.querySelector('.block1'))
+
+console.log(document.querySelector('.block1')[1])
+
+// Найти все совпадения
+
+console.log(document.querySelectorAll('#id'))
+console.log(document.querySelector('#id'))
+console.log(document.getElementById('id'))
+
+console.log(document.querySelector('h1'))
+console.log(document.querySelector('.text'))
+console.log(document.querySelector('#first-id>div'))
+console.log(document.querySelector('.block1'))
+console.log(document.querySelectorAll('p'))
+
+
+// все очистить
+body.innerHTML
+
+// добавляем данные
+
+p.innerHTML = 'hello'
+
+// добавляем данные
+const body = document.querySelector('body')
+
+const p = document.createElement('p')
+p.innerHTML = 'hello'
+
+body.append(p)
+
+const newP = document.createElement('p')
+newP.innerHTML = 'bye'
+body.append(newP)
+
+// 
+
+const block = document.querySelector(".block");
+
+for(let i = 0; i < 13; i++) {
+  let newP = document.createElement('p')
+  newP.innerHTML = i + 1;
+  block.append(newP);
+}
+
+// найти элемент
+// добавить элемент на страницу
+// создать элемент
+// добавить содержимое внутрь элемента
+
+const body = document.querySelector('body')
+const div = document.createElement("div");
+
+for(let i = 0; i < 12; i++) {
+  let newP = document.createElement('p')
+  newP.innerHTML = i + 1;
+  div.append(newP);
+}
+body.append(div);
+
+// задать элементу класс 
+
+const div = document.querySelector('.block')
+
+
+div.classList.add('block-open')
+
+
+// удалить элементу класс 
+
+const div = document.querySelector('.block')
+
+
+div.classList.add('block-open')
+
+div.classList.remove('block')
+
+// задать элементу класс 
+
+const div = document.querySelector('.block')
+
+
+div.classList.add('block-open')
+console.log(div.classList)
+
+// добавляе меняем класс 
+
+const block = document.querySelector('.block')
+
+const btn = document.querySelector('.btn')
+
+btn.addEventListener('click', () =>{
+  console.log(block.classList)
+  if(block.classList == 'block'){
+
+  block.classList.add('block-open')
+  }
+  else {
+    block.classList.remove('block-open')
+  }
+})
+
+// изменить стиль
+
+const block = document.querySelector('.block')
+
+block.style.display = block
+block.style.height="500px"
+
+// добавить id df
+block.id ='id'
+
+block.getAttribute('herf', '1234')
+
+

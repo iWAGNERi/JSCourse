@@ -1,0 +1,22 @@
+/* анимация  */
+
+.block {
+	width: 8px;
+	height: 200px;
+	background: violet;
+	animation: animate 3s linear forwards;
+}
+
+.block-open {
+	background: greenyellow;
+}
+
+
+@keyframes animate {
+	0% {
+		width: 0;
+	}
+	100% {
+		width: 500px;
+	}
+}
